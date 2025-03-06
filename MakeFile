@@ -1,0 +1,17 @@
+CC = gcc
+FLAGS = -Wall -g
+TARGET = myShell
+
+all: $(TARGET)
+
+$(TARGET): myShell.o
+	$(CC) $(FLAGS) -o $(TARGET) myShell.o
+
+myShell.o: myShell.c myShell.h
+	$(CC) $(FLAGS) -c myShell.c
+
+clean:
+	rm -f *.o $(TARGET)
+
+.PHONY: all clean
+
